@@ -2,7 +2,7 @@ const categoryr = () => {
   return ( 
     <div>
       <h1>categoryr</h1>
-      this is category reducers
+      This is category reducers
     </div>
    );
 }

@@ -1,7 +1,7 @@
 const productsr = () => {
   return ( 
     <div>
-      <h1>this is Products</h1>
+      <h1>This is Products reducer</h1>
     </div>
    );
 }
