@@ -8,11 +8,7 @@ import {
     Collapse,
     Icon,
     Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
     useColorModeValue,
-    useBreakpointValue,
     Image,
     useDisclosure,
 } from '@chakra-ui/react';
@@ -24,10 +20,11 @@ import {
 } from '@chakra-ui/icons';
 
 import { Link as lee } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
     const { isOpen, onToggle } = useDisclosure();
-
+    const { token } = useSelector(state => state.auth)
     return (
         <Box>
             <Flex
@@ -53,15 +50,13 @@ export default function Navbar() {
                     />
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Link to='/' as={lee} >
-                        <Image hr borderRadius="full" boxSize="50px" src='https://www.svgrepo.com/show/174895/orkut-logo.svg' />
-                    </Link>
+                    <Link to='/' as={lee} ><Image hr borderRadius="full" boxSize="50px" src='https://www.svgrepo.com/show/174895/orkut-logo.svg' /></Link>
                     <Flex align={'center'} display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
 
-                <Stack
+                {token ? null : <Stack
                     flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}
                     direction={'row'}
@@ -87,7 +82,7 @@ export default function Navbar() {
                         }}>
                         Sign Up
                     </Button>
-                </Stack>
+                </Stack>}
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
@@ -194,6 +189,11 @@ const NAV_ITEMS = [
     {
         label: 'Shop for Watch',
         to: '/shop?q=watch'
+
+    },
+    {
+        label: 'Admin',
+        to: '/admin'
 
     },
 
