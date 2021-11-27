@@ -1,32 +1,31 @@
-import AdminPage from "./components/AdminPage";
 import Home from "./components/Home";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
 import Products from "./components/Products";
-import Order from "./components/Order";
-import MyOrders from "./components/MyOrders";
-import Navbar from "./layout/Navbar"
-import Footer from "./layout/Footer";
+import Navbar from "./layout/Navbar";
 import { Routes, Route } from 'react-router-dom'
-import PrivateRoute from "./routing/PrivateRoute";
-import { Toaster } from 'react-hot-toast'
 
-const App = () => {
-  return ( 
-    <div>
-      <div><Toaster /></div>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/signup' element={<Signup />} />
-      <Route path='/products' element={<Products />} />
-      <Route path='/admin' element={<AdminPage />} />
-    </Routes>
-    <Footer />
+import Product from "./components/Product/Product";
+import Footer from "./layout/Footer";
+import Login from "./components/auth/Login";
+import SignUp from "./components/auth/SignUp";
+import Admin from "./components/admin/Admin";
+function App() {
 
-  </div>
+  return (
+    <div className="App">
+      <Navbar />
+      {/* <Home /> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/shop' element={<Products />} />
+        <Route path='/shop/:productId' element={<Product />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/admin' element={<Admin />} />
+      </Routes>
+      <Footer />
+
+    </div>
   );
 }
- 
+
 export default App;

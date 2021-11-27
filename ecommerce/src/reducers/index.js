@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import auth from './authReducer'
 import loader from './loaderReducer'
-import productsr from './productsr'
-import categoryr from './categoryr'
+import products from './productsReducer'
+import categories from './categoriesReducer'
 
 export default combineReducers({
     auth,
     loader,
-    productsr,
-    categoryr
+    products,
+    categories
 })

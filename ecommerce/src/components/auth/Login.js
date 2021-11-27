@@ -13,7 +13,7 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { loginUser } from '../actions/auth';
+import { loginUser } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router';
   
